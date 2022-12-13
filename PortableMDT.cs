@@ -61,8 +61,9 @@ namespace PortableMDT
                     }
                 }
 
-                //Create the tablet
+                //Create the tablet -- Make sure the network knows it exists
                 _prop = API.CreateObject(API.GetHashKey(_propName), 0.5f, 0.5f, 0.5f, true, true, true);
+                API.NetworkRegisterEntityAsNetworked(_prop);
 
                 //Attach Tablet to Player
                 API.AttachEntityToEntity(_prop, Game.PlayerPed.Handle, API.GetPedBoneIndex(Game.PlayerPed.Handle, 28422), -0.05f, 0f, 0f, 0f, 0f, 0f, true, true, false, true, 1, true);
@@ -71,7 +72,6 @@ namespace PortableMDT
                 Game.PlayerPed.Task.PlayAnimation(_animDictionary, _animName, 8.0f, -1, (AnimationFlags)_animFlag);
 
                 //Load Display
-                Debug.WriteLine("Loaded");
                 API.SendNuiMessage("{\"type\":\"FIVEPD::Computer::UI\",\"display\":true}");
                 API.SetNuiFocus(true, true);
 
