@@ -86,6 +86,7 @@ namespace PortableMDT
         {
             Game.PlayerPed.Task.ClearAnimation(_animDictionary, _animName);
             API.SetModelAsNoLongerNeeded((uint)API.GetHashKey(_propName));
+            API.NetworkUnregisterNetworkedEntity(_prop);
             API.DeleteEntity(ref _prop);
         }
         private void ShowNotification(string msg)
