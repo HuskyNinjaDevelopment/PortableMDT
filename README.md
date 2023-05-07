@@ -1,5 +1,5 @@
 # Plugin Information
-Allows players to use the FivePD MDT while in the field.\
+Allows players to use the FivePD MDT while in the field.
 
 Default Keybind: F4
 
